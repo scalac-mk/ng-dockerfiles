@@ -15,10 +15,10 @@ Available versions (and images tags) are:
 
 Where:
 * `DESTINATION_BACKUP_FOLDER` is a folder where you want database to be held in host
-* `DATABASE_CONTAINER` is the name of your mongodb container
+* `DATABASE_CONTAINER` is the name of your mysql container
 * `VERSION` is aforementioned suitable version
 
-Above command will create a dump of every database (sql format) and pack them in `.tar` format in destination folder.
+Above command will create a dump of every database (sql format) and put them in destination folder.
 
 `slave` version will stop slave, dump database along with slave information (`SHOW SLAVE STATUS`) and start slave back again
 
