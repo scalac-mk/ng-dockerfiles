@@ -1,0 +1,42 @@
+#!/bin/bash
+
+apt-get update
+
+if [[ `cat Gemfile.lock  | grep "^  mysql"` ]]; then
+
+  echo " +++ "
+  echo " +++ mysql gem detected, installing mysql depencendies ..."
+  echo " +++ "
+  apt-get install -y libmysqlclient-dev
+
+fi
+
+
+if [[ `cat Gemfile.lock  | grep "^  pg"` ]]; then
+
+  echo " +++ "
+  echo " +++ pg gem detected, installing postgres depencendies ..."
+  echo " +++ "
+  apt-get install -y libpq-dev
+
+fi
+
+
+if [[ `cat Gemfile.lock  | egrep "^  (paperclip|carrierwave|rmagick|minimagick)"` ]]; then
+
+  echo " +++ "
+  echo " +++ detected imagemagick, installing depencendies ..."
+  echo " +++ "
+  apt-get install -y imagemagick libmagickwand-dev libmagickcore-dev
+
+fi
+
+echo " +++ "
+echo " +++ Running bundler..."
+echo " +++ "
+bundle install --jobs=8 --retry=3  --without development test --deployment
+
+echo " +++ "
+echo " +++ Cleaning apt cache..."
+echo " +++ "
+apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

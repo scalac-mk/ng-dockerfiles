@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for var in "$@"
+do
+  arr=($var)
+  /opt/${arr[0]}/install ${arr[@]:1}
+done

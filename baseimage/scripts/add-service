@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+service=$1
+
+echo " +++ "
+echo " +++ Adding $service service ... "
+echo " +++ "
+
+mkdir /etc/service/$1
+
+if ! cp /opt/services/$service /etc/service/$1/run; then
+  echo " !!! "
+  echo " !!! Unknown service $service, please create and add it manually"
+  echo " !!! in Dockerfile: ADD $service /etc/service/$service/run "
+  echo " !!! "
+  exit 1
+fi
+
+chmod +x /etc/service/$1/run

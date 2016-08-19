@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo $* >> /bin/run-on-start
+chmod +x /bin/run-on-start

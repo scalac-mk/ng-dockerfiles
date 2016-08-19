@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker build -t quay.io/netguru/baseimage:0.9.18.2 --pull --no-cache .

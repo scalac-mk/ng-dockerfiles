@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd $APP_HOME
+exec bundle exec rake resque:work QUEUE=*

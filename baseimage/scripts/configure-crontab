@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CRON_ENV=${APP_ENV:-$RAILS_ENV}
+
+echo " +++ "
+echo " +++ Setting up cronjob tasks... for $CRON_ENV environment... "
+echo " +++ "
+
+cd $APP_HOME
+bundle exec whenever --update-crontab --set environment=$CRON_ENV
