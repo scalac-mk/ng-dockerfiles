@@ -1,5 +1,5 @@
 # Google Cloud Storage scripts
-There are three docker images for controlling the DB backups in Google Cloud Storage:
+There are three docker images for controlling backups in Google Cloud Storage:
 
 1. `quay.io/netguru/backups:upload`
 2. `quay.io/netguru/backups:restore`
