@@ -1,9 +1,13 @@
 # MongoDB dump scripts
 
-Dump MongoDB databases using Docker images. Available versions are:
+Dump MongoDB databases using Docker images.
 
-* `2.4`
-* `3.0`
+Quay repository: `https://quay.io/repository/netguru/backups`
+
+Available versions (and images tags) are:
+
+* `2.4` (image tag: `mongo-2.4`)
+* `3.0` (image tag: `mongo-3.0`)
 
 ## Example usage
 
