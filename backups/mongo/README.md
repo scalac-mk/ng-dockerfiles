@@ -2,7 +2,7 @@
 
 Dump MongoDB databases using Docker images.
 
-Quay repository: `https://quay.io/repository/netguru/backups`
+Quay repository: [https://quay.io/repository/netguru/backups](https://quay.io/repository/netguru/backups)
 
 Available versions (and images tags) are:
 
