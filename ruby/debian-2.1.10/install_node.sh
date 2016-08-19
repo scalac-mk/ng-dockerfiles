@@ -1,0 +1,36 @@
+#!/bin/bash
+set -ex
+
+version=${1:-6.x}
+
+case $version in
+  0.10)
+    install_url=https://deb.nodesource.com/setup_0.10
+    ;;
+  0.12)
+    install_url=https://deb.nodesource.com/setup_0.12
+    ;;
+  4.x)
+    install_url=https://deb.nodesource.com/setup_4.x
+    ;;
+  6.x)
+    install_url=https://deb.nodesource.com/setup_6.x
+    ;;
+  *)
+    echo $"Usage: $0 {0.10|0.12|4.x|6.x}"
+    exit 1
+esac
+
+echo "  +++  Installing latest version of nodejs from $version tree"
+curl -sL $install_url | bash -
+
+apt-get install -y nodejs
+
+echo "  +++  Installing default npm components..."
+npm install -g bower coffee-script
+
+echo "  +++  Allowing bower to run with root and disabling interactive prompts..."
+echo '{ "allow_root": true, "interactive": false }' > /root/.bowerrc
+
+apt-get clean
+echo "  +++  Nodejs (`node --version`) and NPM (`npm --version`) have been installed!"

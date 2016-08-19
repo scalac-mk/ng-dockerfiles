@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker build -t quay.io/netguru/ng-ruby:1.9.3-p547 --pull .
