@@ -1,8 +1,10 @@
-# Sensu-server 0.22
+# Sensu-server
+
+Quay repository: https://quay.io/repository/netguru/sensu-server
 
 ## running the image
 
-`docker run -d -v path_to_config_dir:/etc/sensu quay.io/netguru/sensu:0.22`
+`docker run -d -v path_to_config_dir:/etc/sensu quay.io/netguru/sensu:VERSION`
 
 Where:
 * `path_to_config_dir` - path which contains configuration files (`sensu.json`, `api.json`)
