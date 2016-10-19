@@ -6,4 +6,4 @@ echo " +++ "
 echo " +++ Setting timezone $tz"
 echo " +++ "
 
-echo '$tz' > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
+echo "$tz" > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
