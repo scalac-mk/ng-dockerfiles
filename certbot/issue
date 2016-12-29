@@ -1,0 +1,40 @@
+#!/bin/sh
+
+set -e
+
+DOMAIN=$DOMAIN
+EMAIL=$EMAIL
+
+MISSING=""
+VOLUMES=""
+
+[ -z "${DOMAIN}" ] && MISSING="${MISSING} DOMAIN"
+[ -z "${EMAIL}" ] && MISSING="${MISSING} EMAIL"
+
+USAGE="docker run -v <webroot>:/webroot -v /etc/letsencrypt:/etc/letsencrypt -e DOMAIN=<domain> -e EMAIL=<email> issue"
+
+[ ! -d /etc/letsencrypt ] && VOLUMES="${VOLUMES} /etc/letsencrypt"
+[ ! -d /webroot ] && VOLUMES="${VOLUMES} /webroot"
+
+if [ "${MISSING}" != "" ] || [ "${VOLUMES}" != "" ] ; then
+
+  if [ "${MISSING}" != "" ]; then
+    echo "Missing required environment variables:"
+    echo " ${MISSING}"
+  fi
+
+  if [ "${VOLUMES}" != "" ]; then
+    echo "Missing attached volumes:"
+    echo " ${VOLUMES}"
+  fi
+
+  echo ""
+  echo "Usage: ${USAGE}"
+  exit 1
+fi
+
+set -x
+certbot certonly --webroot -w /webroot -d $DOMAIN --email $EMAIL --agree-tos --non-interactive
+
+set +x
+echo "Success!"
