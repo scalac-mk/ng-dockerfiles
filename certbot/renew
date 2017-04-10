@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+VOLUMES=""
+
+USAGE="docker run -v <webroot>:/webroot -v /etc/letsencrypt:/etc/letsencrypt quay.io/netguru/letsencrypt:latest renew"
+
+[ ! -d /etc/letsencrypt ] && VOLUMES="${VOLUMES} /etc/letsencrypt"
+[ ! -d /webroot ] && VOLUMES="${VOLUMES} /webroot"
+
+if [ "${VOLUMES}" != "" ] ; then
+  echo "Missing attached volumes:"
+  echo " ${VOLUMES}"
+
+  echo ""
+  echo "Usage: ${USAGE}"
+  exit 1
+fi
+
+set -x
+certbot renew
+
+set +x
+echo "Success!"

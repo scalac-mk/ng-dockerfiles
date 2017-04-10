@@ -10,3 +10,4 @@ RUN pip install --upgrade pip
 RUN pip install -U letsencrypt
 
 ADD issue /usr/local/bin/issue
+ADD renew /usr/local/bin/renew

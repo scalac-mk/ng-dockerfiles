@@ -11,7 +11,7 @@ VOLUMES=""
 [ -z "${DOMAIN}" ] && MISSING="${MISSING} DOMAIN"
 [ -z "${EMAIL}" ] && MISSING="${MISSING} EMAIL"
 
-USAGE="docker run -v <webroot>:/webroot -v /etc/letsencrypt:/etc/letsencrypt -e DOMAIN=<domain> -e EMAIL=<email> issue"
+USAGE="docker run -v <webroot>:/webroot -v /etc/letsencrypt:/etc/letsencrypt -e DOMAIN=<domain> -e EMAIL=<email> quay.io/netguru/letsencrypt:latest issue"
 
 [ ! -d /etc/letsencrypt ] && VOLUMES="${VOLUMES} /etc/letsencrypt"
 [ ! -d /webroot ] && VOLUMES="${VOLUMES} /webroot"

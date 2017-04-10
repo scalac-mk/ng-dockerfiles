@@ -4,12 +4,14 @@ A simple dockerfile which will create a letsencrypt certificate using "webroot" 
 
 ## Usage
 
-Example use:
+### To issue a new certificate, use:
 
 ```
 docker run -v acme-webroot:/webroot -v /etc/letsencrypt:/etc/letsencrypt -e DOMAIN=example.com -e EMAIL=example@email.com quay.io/netguru/letsencrypt:latest issue
 ```
 
-## TODO
+### To renew existing certificates:
 
-* automatic renewal
+```
+docker run -v acme-webroot:/webroot -v /etc/letsencrypt:/etc/letsencrypt quay.io/netguru/letsencrypt:latest renew
+```
