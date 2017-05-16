@@ -1,5 +1,0 @@
-#!/bin/bash
-set -e
-
-docker build -t quay.io/netguru/ng-ruby:1.9.3-p551 --pull .
-docker push quay.io/netguru/ng-ruby:1.9.3-p551

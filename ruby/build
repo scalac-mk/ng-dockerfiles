@@ -1,0 +1,16 @@
+#!/bin/bash
+
+die() {
+  echo >&2 "$@"
+  exit 1
+}
+
+version=$1
+
+[ "$#" -eq 1 ] || die "1 argument required (image version), $# provided"
+
+set -ex
+
+cd $version
+docker build -t quay.io/netguru/ng-ruby:$version --pull .
+docker push quay.io/netguru/ng-ruby:$version

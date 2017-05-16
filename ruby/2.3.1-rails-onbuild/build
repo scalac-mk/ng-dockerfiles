@@ -1,5 +1,0 @@
-#!/bin/bash
-set -e
-
-docker build -t quay.io/netguru/ng-ruby:2.3.1-rails-onbuild .
-docker push quay.io/netguru/ng-ruby:2.3.1-rails-onbuild

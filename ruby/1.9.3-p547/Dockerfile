@@ -8,6 +8,9 @@ ENV BUNDLE_APP_CONFIG $GEM_HOME
 
 ENV PATH $GEM_HOME/bin:$PATH
 
+## Latest Security Updates
+RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
+
 RUN apt-get update \
   && ruby-install --system --cleanup ruby $RUBY_VERSION \
   && gem install bundler --version "$BUNDLER_VERSION" \

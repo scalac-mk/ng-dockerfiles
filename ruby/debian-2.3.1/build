@@ -1,5 +1,0 @@
-#!/bin/bash
-set -ex
-
-docker build -t quay.io/netguru/ng-ruby:debian-2.3.1 --pull .
-docker push quay.io/netguru/ng-ruby:debian-2.3.1
