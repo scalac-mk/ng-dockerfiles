@@ -12,5 +12,5 @@ version=$1
 set -ex
 
 cd $version
-docker build -t quay.io/netguru/ng-ruby:$version --pull .
+docker build -t quay.io/netguru/ng-ruby:$version --pull --no-cache .
 docker push quay.io/netguru/ng-ruby:$version
