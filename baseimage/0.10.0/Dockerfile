@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   less psmisc \
   vim-nox vim-rails \
   libmysqlclient-dev libpq-dev imagemagick libmagickwand-dev libmagickcore-dev \
-  language-pack-en
+  language-pack-en \
+  dnsutils inetutils-*
 
 ## Latest Security Updates
 RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
@@ -40,9 +41,14 @@ RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.
   dpkg -i dumb-init_1.2.0_amd64.deb && \
   rm -f dumb-init_1.2.0_amd64.deb
 
-## Use brightbox for rubies (https://www.brightbox.com/docs/ruby/ubuntu/)
-RUN apt-add-repository ppa:brightbox/ruby-ng && \
-  apt-get update && apt-get install -y ruby-switch
+## Ruby install
+RUN \
+  cd /tmp && \
+  wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz && \
+  tar -xzvf ruby-install-0.6.1.tar.gz && \
+  cd ruby-install-0.6.1/ && \
+  make install && \
+  rm -rf /tmp/ruby-install*
 
 RUN echo 'install: --no-document\nupdate: --no-document' >> "$HOME/.gemrc"
 
