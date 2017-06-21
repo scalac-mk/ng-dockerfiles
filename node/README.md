@@ -4,7 +4,7 @@ Quay repository: https://quay.io/repository/netguru/ng-node
 
 ## Description
 
-There are base images that can be used to build and run SPA apps. Contains couple most-necessary software, like:
+These are base images that can be used to build and run SPA apps. Contains couple most-necessary software, like:
 
 * node 6/8
 * yarn
