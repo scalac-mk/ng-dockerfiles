@@ -4,10 +4,10 @@ Quay repository: https://quay.io/repository/netguru/ng-node
 
 ## Description
 
-This is a base image that can be used to build and run SPA apps. Contains couple most-necessary software, like:
+These are base images that can be used to build and run SPA apps. Contains couple most-necessary software, like:
 
-* node 6
-* npm 3
+* node 6/8
+* yarn
 * nginx (along with basic configuration)
 * [dumb-init](https://github.com/Yelp/dumb-init)
 
