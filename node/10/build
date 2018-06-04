@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -ex
+
+docker build -t quay.io/netguru/ng-node:10 --pull --no-cache .
+docker push quay.io/netguru/ng-node:10
